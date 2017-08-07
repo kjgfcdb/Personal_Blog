@@ -1,7 +1,7 @@
 import time
 import uuid
 
-from django.contrib.auth.models import User, AbstractBaseUser
+from django.contrib.auth.models import AbstractBaseUser
 from django.db import models
 from django.utils import timezone
 from django.utils.encoding import python_2_unicode_compatible
@@ -14,13 +14,13 @@ def next_id():
 @python_2_unicode_compatible
 class User(AbstractBaseUser):
     id = models.CharField(max_length=50, default=next_id(), primary_key=True)
-    email = models.CharField(max_length=50,unique=True)
+    email = models.CharField(max_length=50, unique=True)
     password = models.CharField(max_length=50, null=True)
     admin = models.NullBooleanField()
     name = models.CharField(max_length=50)
     image = models.CharField(max_length=500)
     created_at = models.DateTimeField(default=timezone.now)
-    is_active = models.BooleanField(default=False,name='active')
+    is_active = models.BooleanField(default=False, name='active')
     REQUIRED_FIELDS = []
     USERNAME_FIELD = 'email'
 

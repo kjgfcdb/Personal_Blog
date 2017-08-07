@@ -16,9 +16,9 @@
                     return $form.showFormError('请输入评论内容！');
                 }
                 $form.postJSON(comment_url, {content: content}, function (err, result) {
-{#                    if (err) {#}
-{#                        return $form.showFormError(err);#}
-{#                    }#}
+                    {#                    if (err) {#}
+                    {#                        return $form.showFormError(err);#}
+                    {#                    }#}
                     refresh();
                 });
             });
@@ -38,28 +38,28 @@
 		<hr class="uk-article-divider">
 
 		{% if user %}
-		<h3>发表评论</h3>
-		<article class="uk-comment">
-			<header class="uk-comment-header">
-{#				<img class="uk-comment-avatar uk-border-circle" width="50" height="50" src="{{ __user__.image }}">#}
-{#				<h4 class="uk-comment-title">{{ __user__.name }}</h4>#}
-				<h4 class="uk-comment-title">{{ user }}</h4>
-			</header>
-			<div class="uk-comment-body">
-				<form id="form-comment" class="uk-form">
-					<div class="uk-alert uk-alert-danger uk-hidden"></div>
-					<div class="uk-form-row">
-						<textarea rows="6" placeholder="说点什么吧" style="width:100%;resize:none;"></textarea>
-					</div>
-					<div class="uk-form-row">
-						<button type="submit" class="uk-button uk-button-primary"><i class="uk-icon-comment"></i>
-							发表评论
-						</button>
-					</div>
-				</form>
-			</div>
-		</article>
-		<hr class="uk-article-divider">
+			<h3>发表评论</h3>
+			<article class="uk-comment">
+				<header class="uk-comment-header">
+					{#				<img class="uk-comment-avatar uk-border-circle" width="50" height="50" src="{{ __user__.image }}">#}
+					{#				<h4 class="uk-comment-title">{{ __user__.name }}</h4>#}
+					<h4 class="uk-comment-title">{{ user }}</h4>
+				</header>
+				<div class="uk-comment-body">
+					<form id="form-comment" class="uk-form">
+						<div class="uk-alert uk-alert-danger uk-hidden"></div>
+						<div class="uk-form-row">
+							<textarea rows="6" placeholder="说点什么吧" style="width:100%;resize:none;"></textarea>
+						</div>
+						<div class="uk-form-row">
+							<button type="submit" class="uk-button uk-button-primary"><i class="uk-icon-comment"></i>
+								发表评论
+							</button>
+						</div>
+					</form>
+				</div>
+			</article>
+			<hr class="uk-article-divider">
 		{% endif %}
 
 		<h3>最新评论</h3>

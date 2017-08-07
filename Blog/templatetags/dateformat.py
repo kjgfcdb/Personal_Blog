@@ -1,5 +1,6 @@
-from django.template.defaultfilters import register
 from datetime import datetime, timezone
+
+from django.template.defaultfilters import register
 
 
 @register.filter('dateformat')
@@ -13,4 +14,5 @@ def dateformat(t):
 
 @register.filter('br')
 def br(s):
+    # Convert the '\n' to '<br>'
     return s.replace('\n', '<br>')
