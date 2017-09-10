@@ -21,7 +21,6 @@
 		<a href="/" class="uk-navbar-brand">Awesome</a>
 		<ul class="uk-navbar-nav">
 			<li data-url="blogs"><a href="/"><i class="uk-icon-home"></i> 日志</a></li>
-			<li><a target="_blank" href="#"><i class="uk-icon-book"></i> 教程</a></li>
 			<li><a target="_blank" href="#"><i class="uk-icon-code"></i> 源码</a></li>
 		</ul>
 		<div class="uk-navbar-flip">
@@ -31,6 +30,7 @@
 						<a href="#"><i class="uk-icon-user"></i> {{ user.name }}</a>
 						<div class="uk-dropdown uk-dropdown-navbar">
 							<ul class="uk-nav uk-nav-navbar">
+								<li><a href={% url 'detail' %}><i class="uk-icon-gear"></i>详细信息</a></li>
 								<li><a href={% url 'signout' %}><i class="uk-icon-sign-out"></i> 登出</a></li>
 							</ul>
 						</div>
@@ -63,7 +63,7 @@
 				<a target="_blank" href="#" class="uk-icon-button uk-icon-twitter"></a>
 			</p>
 			<p>Powered by <a href="#">Awesome Python Webapp</a>. Copyright &copy; 2014. [<a
-					href="{% url 'signin' %}" target="_blank">Manage</a>]</p>
+					href="{% url 'manage_blogs' %}">Manage</a>]</p>
 			<p><a href="http://www.zhihu.com/" target="_blank">www.zhihu.com</a>. All rights reserved.</p>
 			<a target="_blank" href="#"><i class="uk-icon-html5" style="font-size:64px; color: #444;"></i></a>
 		</div>

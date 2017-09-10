@@ -2,6 +2,11 @@
 
 {% block title %}登录{% endblock %}
 {% block content %}
+	{% if if_alert %}
+		<script>
+			alert("Wrong password!!!");
+		</script>
+	{% endif %}
 	<div class="uk-width-2-3">
 		<h1>请输入登录信息</h1>
 		<form action="/signin/" class="uk-form uk-form-stacked" method="post">

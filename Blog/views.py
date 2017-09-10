@@ -13,7 +13,7 @@ from .models import *
 # TODO:注册之后跳转问题
 
 # Create your views here.
-def blogs(request):
+def index(request):
     return render(request, 'Blog/index.html', context={
         'blogs': Blog.objects.order_by('created_at')[::-1]
     })
@@ -49,7 +49,9 @@ def signin(request):
                 login(request, users[0])
                 return HttpResponseRedirect("/")
             else:
-                return HttpResponseRedirect("/")
+                return render(request,'Blog/signin.html',context={
+                    'if_alert':1
+                })
         # print(request.POST['name'])
         # User(name=user_data['name'], email=user_data['email'], passwd=user_data['passwd']).save()
         return HttpResponse("<h1>404 Not Found</h1>")
@@ -63,8 +65,7 @@ def register(request):
         user_data = json.loads(request.body.decode('utf-8'))
         new_user = User(name=user_data['name'], email=user_data['email'], password=user_data['passwd'])
         new_user.save()
-        return render(request, 'Blog/index.html', context={
-        })
+        return HttpResponseRedirect("/")
     else:
         return render(request, 'Blog/register.html', content_type='text/html')
 
@@ -101,3 +102,13 @@ def add_comment(request):
         return HttpResponse()
     else:
         return HttpResponse()
+
+
+def manage_blogs(request,page='1'):
+    return render(request,'Blog/manage_blogs.html',context={
+        'blogs': Blog.objects.order_by('created_at')[::-1]
+    })
+
+
+def detail(request):
+    return render(request,'Blog/detail.html')

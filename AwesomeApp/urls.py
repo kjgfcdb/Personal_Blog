@@ -19,12 +19,14 @@ from django.contrib import admin
 from Blog import views
 
 urlpatterns = [
-    url(r'^$', views.blogs, name='index'),
+    url(r'^$', views.index, name='index'),
     url(r'^admin/', admin.site.urls),
     url(r'^register/$', views.register, name='register'),
     url(r'^signout/$', views.signout, name='signout'),
     url(r'^signin/$', views.signin, name='signin'),
+    url(r'^detail/$', views.detail, name='detail'),
     url(r'^create_blogs/$', views.create_blog, name='create_blog'),
+    url(r'^manage_blogs/$', views.manage_blogs, name='manage_blogs'),
     url(r'^blogs/', include('Blog.urls')),
     url(r'^blogs/[0-9a-zA-Z]+/$', views.show_blog, name='show_blog'),
     url(r'^blogs/[0-9a-zA-Z]+/comments/$', views.add_comment, name='add_comment')
